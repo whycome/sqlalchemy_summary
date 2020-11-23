@@ -16,6 +16,13 @@ Base = declarative_base()
     '数据库类型+数据库驱动://用户名:密码@机器地址:端口号/数据库'
 如：
     链接postgresql：engine = create_engine("postgresql://username:password@ip:port/dbname)
+    
+create_engine: 创建新的engine实例；
+    参数详解：（选填，可根据需要设置）
+        1, case_sensitive=True: 如果为false, 表中的结果列以不区分大小写方式匹配; 即：UserInfo <==> userinfo
+        2, creator: 返回db api连接的可调用文件。此创建函数将传递给基础连接池，并将用于创建所有新的数据库连接。使用此函数将忽略url参数中指定的连接参数
+        3, echo=False: 如果为True，将输出记录所有的sql语句日志
+        4, encoding: 默认utf-8, 字符串编码，在db api之外。
 """
 engine  = create_engine("mysql+pymysql://root:123456@localhost:3306/sql_test")
 
