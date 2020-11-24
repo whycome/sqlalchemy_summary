@@ -127,3 +127,7 @@ session.query(Users).from_statement(stmt).params(name='ed').all()
 4, session.query(func.count(Users.id)).scalar()
 # 根据get筛选
 session.query(Users).get(id)
+
+
+# 创建表；python filename.py
+Base.metadata.create_all(engine)
